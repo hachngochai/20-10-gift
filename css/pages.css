@@ -1,0 +1,1042 @@
+/* INTRO */
+[data-page="intro"]{background:radial-gradient(circle at 50% 40%,#3a162d 0,#170b16 44%,#070406 100%)}
+.intro-scene{height:100%;position:relative;overflow:hidden}
+.moon{position:absolute;width:min(68vw,760px);height:min(68vw,760px);max-height:760px;max-width:760px;border-radius:50%;right:-12%;top:7%;background:radial-gradient(circle at 35% 35%,rgba(255,228,239,.17),rgba(245,155,195,.07) 40%,transparent 68%);filter:blur(1px)}
+.intro-glass{position:absolute;inset:0;background:radial-gradient(circle at 45% 45%,transparent 0,transparent 34%,rgba(0,0,0,.34) 78%,rgba(0,0,0,.72) 100%)}
+.intro-words{position:absolute;left:10vw;top:50%;transform:translateY(-47%);max-width:780px}
+.hero-title{font:600 clamp(68px,9.2vw,140px)/.78 "Cormorant Garamond",serif;letter-spacing:-.045em;margin:0 0 30px}
+.hero-title em{color:var(--pink);font-weight:500}
+.hero-sub{font:400 14px/1.9 Montserrat,sans-serif;color:var(--muted);margin:0 0 36px}
+.hero-enter{display:inline-flex;align-items:center;gap:24px;color:var(--cream);font-size:10px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(243,155,195,.5);padding:0 0 10px}
+.hero-enter i{font-style:normal;color:var(--pink);font-size:17px}
+.intro-skip{position:absolute;bottom:24px;left:10vw;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,248,240,.27)}
+
+/* HUB ROOM */
+[data-page="hub"]{background:#0a060a}
+.room-ui{position:relative;height:100%;width:100%;overflow:hidden}
+.room-copy{position:absolute;left:7vw;top:15vh;z-index:15;max-width:330px}
+.room-copy h2{font:600 clamp(58px,7vw,96px)/.78 "Cormorant Garamond",serif;letter-spacing:-.04em;margin:0 0 20px}
+.room-copy h2 em{color:var(--pink);font-weight:500}
+.room-copy>p:last-child{font-size:10px;line-height:1.8;color:var(--muted)}
+.room-progress{position:absolute;right:7vw;top:15vh;z-index:15;width:170px;text-align:right}.room-progress>span{font-size:9px;letter-spacing:.13em;color:var(--muted)}.progress-track{height:2px;background:rgba(255,255,255,.12);margin-top:9px}.progress-track i{display:block;height:100%;width:0;background:var(--pink);transition:.8s var(--ease)}
+.room-scene{position:absolute;left:50%;top:54%;width:min(1040px,104vw);height:min(720px,72vh);transform:translate(-50%,-50%);perspective:1300px;transform-style:preserve-3d;transition:transform .18s ease-out}
+.back-wall{position:absolute;inset:0 9% 10%;transform:rotateX(1deg);background:linear-gradient(145deg,#25111f,#0f090e 72%);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 90px rgba(0,0,0,.6),0 35px 130px rgba(0,0,0,.5)}
+.back-wall:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0 34%,rgba(245,155,195,.035) 34.2% 34.4%,transparent 34.6%),linear-gradient(transparent 0 64%,rgba(255,255,255,.03) 64.2% 64.4%,transparent 64.6%)}
+.room-floor{position:absolute;left:0;right:0;bottom:0;height:33%;transform:perspective(700px) rotateX(63deg);transform-origin:bottom;background:repeating-linear-gradient(90deg,#10080e 0,#10080e 79px,#150a11 80px),repeating-linear-gradient(0deg,transparent 0,transparent 79px,rgba(255,255,255,.035) 80px);box-shadow:0 -25px 80px rgba(0,0,0,.6)}
+.window{position:absolute;left:22%;top:12%;width:34%;height:52%;background:radial-gradient(circle at 60% 40%,#5a294b,#231226 50%,#11070e 100%);border:8px solid #161016;box-shadow:inset 0 0 40px rgba(243,155,195,.12),0 25px 50px rgba(0,0,0,.35)}
+.window-glow{position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(244,169,204,.3),transparent 53%)}
+.window-frame.x{position:absolute;top:0;bottom:0;left:50%;width:6px;background:#160d13}.window-frame.y{position:absolute;left:0;right:0;top:50%;height:6px;background:#160d13}
+.lamp{position:absolute;right:13%;top:14%;width:110px;height:300px}.lamp span{position:absolute;left:12px;top:0;width:86px;height:58px;border-radius:50% 50% 25% 25%;background:linear-gradient(145deg,#e2aec5,#63344d);box-shadow:0 0 48px rgba(245,155,195,.16)}.lamp i{position:absolute;left:53px;top:56px;width:4px;height:172px;background:#24131d}.lamp:after{content:"";position:absolute;bottom:0;left:23px;width:61px;height:9px;border-radius:50%;background:#24131d}
+.table{position:absolute;left:31%;bottom:17%;width:42%;height:55px;border-radius:50%;background:linear-gradient(145deg,#432233,#1c0e16);box-shadow:0 14px 40px rgba(0,0,0,.5)}.table:after{content:"";position:absolute;left:18%;right:18%;top:18px;height:170px;border-left:3px solid #1f1219;border-right:3px solid #1f1219;transform:perspective(300px) rotateX(-8deg);opacity:.8}
+.plant{position:absolute;left:6%;bottom:17%;width:130px;height:230px}.plant b{position:absolute;bottom:0;left:39px;width:54px;height:80px;border-radius:10px 10px 25px 25px;background:#25131c}.plant i{position:absolute;display:block;width:75px;height:18px;border-radius:100%;background:#3f2840;transform-origin:8px 8px;box-shadow:0 0 12px rgba(243,155,195,.1)}.plant i:nth-child(1){left:28px;top:40px;transform:rotate(25deg)}.plant i:nth-child(2){left:20px;top:84px;transform:rotate(-35deg)}.plant i:nth-child(3){left:39px;top:115px;transform:rotate(12deg)}
+.room-center-mark{position:absolute;left:59%;top:25%;transform:translate(-50%,-50%);font:600 19px/1 "Cormorant Garamond",serif;text-align:center;color:rgba(255,248,240,.22);letter-spacing:.18em}.room-center-mark span{font-size:10px}
+.room-object{position:absolute;left:var(--x);top:var(--y);z-index:var(--z);transform:translate(-50%,-50%) translateZ(0);transition:transform .28s var(--ease),filter .28s,opacity .28s}
+.room-object:hover{transform:translate(-50%,-50%) translateY(-11px) scale(1.06);filter:drop-shadow(0 18px 28px rgba(243,155,195,.18))}
+.room-object strong{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);font-size:8px;color:var(--pink);opacity:.7}
+.room-object small{position:absolute;left:50%;top:calc(100% + 20px);transform:translateX(-50%);white-space:nowrap;font-size:8px;letter-spacing:.1em;color:rgba(255,248,240,.32);text-transform:uppercase;opacity:0;transition:.25s}
+.room-object:hover small{opacity:1}
+.object-glow{position:absolute;inset:-35px;border-radius:50%;background:radial-gradient(circle,rgba(243,155,195,.15),transparent 68%);opacity:0;transition:.3s}.room-object:hover .object-glow{opacity:1}
+.envelope{width:122px;height:84px}.env-paper{position:absolute;inset:7px;border-radius:5px;background:#fbebef;box-shadow:0 13px 24px rgba(0,0,0,.35)}.env-flap{position:absolute;left:8px;right:8px;top:8px;height:45px;background:#f1d5df;clip-path:polygon(0 0,100% 0,50% 78%)}.album{width:128px;height:100px;top:58%!important;}.album-cover{position:absolute;inset:0;border-radius:7px;background:linear-gradient(145deg,#35182b,#171019);border:1px solid rgba(255,255,255,.16);box-shadow:0 17px 30px rgba(0,0,0,.4);padding:15px}.album-cover span{font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.42)}.album-cover b{display:block;margin-top:25px;font:600 29px "Cormorant Garamond",serif;color:var(--pink)}
+.mirror{width:90px;height:150px}.mirror-frame{position:absolute;inset:0;border-radius:50% 50% 44% 44%;background:linear-gradient(145deg,#ca9caf,#4a2136);box-shadow:0 22px 45px rgba(0,0,0,.5)}.mirror-core{position:absolute;inset:9px;border-radius:50% 50% 44% 44%;background:radial-gradient(circle at 38% 30%,#67405a,#211322 63%);display:grid;place-items:center}.mirror-core span{color:rgba(245,155,195,.65);font-size:30px}
+.gift{width:108px;height:96px}.gift-box{position:absolute;left:4px;right:4px;bottom:0;height:72px;border-radius:4px;background:linear-gradient(145deg,#9c466b,#542139);box-shadow:0 18px 36px rgba(0,0,0,.4)}.gift-box:before{content:"";position:absolute;left:0;right:0;top:-9px;height:18px;background:#c16489;border-radius:5px}.gift-ribbon{position:absolute;z-index:2;left:46px;top:7px;width:15px;height:78px;background:#e3a0ba}.gift-ribbon:before,.gift-ribbon:after{content:"";position:absolute;width:29px;height:23px;border:4px solid #e3a0ba;border-bottom:0;border-radius:70% 70% 0 0;top:-13px}.gift-ribbon:before{right:9px;transform:rotate(18deg)}.gift-ribbon:after{left:9px;transform:rotate(-18deg)}
+.object-label{position:absolute;z-index:50;left:50%;bottom:2%;transform:translateX(-50%);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,248,240,.36);transition:.25s}
+.room-floor-tip{position:absolute;z-index:30;bottom:24px;left:50%;transform:translateX(-50%);font-size:8px;color:rgba(255,248,240,.22);letter-spacing:.16em;text-transform:uppercase}
+
+/* LETTER */
+[data-page="letter"]{background:radial-gradient(circle at 70% 32%,#391529 0,#160a13 60%,#090509 100%)}
+.letter-layout{height:100%;display:grid;grid-template-columns:34% 1fr;padding:95px 8vw 40px 9vw;gap:4vw}
+.letter-hero{display:flex;justify-content:center;flex-direction:column}.letter-hero h2{font:600 clamp(63px,7vw,100px)/.76 "Cormorant Garamond",serif;margin:0 0 28px}.letter-hero h2 em{color:var(--pink);font-weight:500}.letter-lead{font-size:11px;line-height:1.9;color:var(--muted);max-width:280px}.letter-scroll-tip{margin-top:45px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
+.explore-stage{position:relative;height:100%;min-height:600px;overflow:hidden}.explore-sky{position:absolute;inset:0;background:radial-gradient(circle at 58% 25%,rgba(245,155,195,.18),transparent 45%),linear-gradient(180deg,rgba(25,9,20,.5),rgba(9,5,9,.96));border-left:1px solid rgba(255,255,255,.08)}
+.chibi-rain{position:absolute;inset:0;z-index:15;pointer-events:none}.chibi-box{position:absolute;pointer-events:auto;width:108px;height:94px;border:1px solid rgba(245,155,195,.24);background:linear-gradient(145deg,rgba(255,245,247,.98),rgba(244,215,227,.96));color:#5a2e43;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.3);transform:translateY(-140px) rotate(var(--rot));animation:dropBox 6.5s var(--delay) cubic-bezier(.12,.76,.25,1) forwards}
+.chibi-box:hover{transform:translateY(-8px) scale(1.07) rotate(0deg)!important;box-shadow:0 25px 55px rgba(243,155,195,.2)}
+.chibi-face{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:39px;height:32px;background:#ffd7c7;border-radius:45% 45% 48% 48%}.chibi-face:before,.chibi-face:after{content:"";position:absolute;top:12px;width:4px;height:7px;border-radius:50%;background:#573447}.chibi-face:before{left:10px}.chibi-face:after{right:10px}.chibi-hair{position:absolute;left:4px;right:4px;top:-3px;height:19px;border-radius:60% 60% 30% 30%;background:#4a2538}.chibi-heart{position:absolute;right:11px;top:11px;font-size:13px;color:#cc5a83}.chibi-copy{position:absolute;left:10px;right:10px;bottom:9px;text-align:center;font:600 12px "Cormorant Garamond",serif}
+.chibi-box.clicked{animation:boxOpen .45s var(--ease) forwards}@keyframes dropBox{0%{opacity:0;transform:translateY(-140px) rotate(var(--rot))}10%{opacity:1}85%{opacity:1}100%{opacity:1;transform:translateY(calc(100vh + 30px)) rotate(calc(var(--rot) + 50deg))}}@keyframes boxOpen{to{opacity:0;transform:scale(1.4) rotate(8deg)}}
+.scroll-letter{position:absolute;z-index:10;left:12%;right:12%;top:6%;bottom:6%;overflow-y:auto;padding:25px 18px 35px 0;scrollbar-width:thin;scrollbar-color:rgba(243,155,195,.46) transparent;overscroll-behavior:contain}
+.paper-inner{max-width:720px;margin:0 auto;padding:64px clamp(32px,5vw,70px);background:linear-gradient(145deg,#fff8f0,#f5dce7);min-height:130%;color:#3c2430;box-shadow:0 35px 90px rgba(0,0,0,.4);position:relative}
+.paper-inner:before{content:"";position:absolute;inset:14px;border:1px solid rgba(89,45,63,.13);pointer-events:none}
+.paper-topline{display:flex;justify-content:space-between;color:#a46b83;font-size:9px;letter-spacing:.2em;margin-bottom:42px}.paper-topline i{font-style:normal;color:#cf5d87}
+.paper-inner h3{font:600 clamp(32px,4vw,53px)/.86 "Cormorant Garamond",serif;margin:0 0 46px}
+#letterContent p{font:500 clamp(19px,2.1vw,27px)/1.85 "Cormorant Garamond",serif;margin:0 0 28px;opacity:0;transform:translateY(16px);transition:.8s var(--ease)}#letterContent p.show{opacity:1;transform:none}
+#letterContent p:first-child:first-letter{font-size:3.3em;float:left;line-height:.72;padding:10px 9px 0 0;color:#bb527b}
+.letter-signature{margin-top:80px;text-align:right;font:500 24px/1.4 "Cormorant Garamond",serif}.letter-signature span{display:block;color:#8d6173}.letter-signature strong{display:block;color:#a5436f}
+.letter-rose{text-align:center;color:#c45b84;font-size:36px;margin-top:90px;padding-bottom:30px}
+.explore-tip{position:absolute;z-index:30;right:18px;bottom:18px;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,248,240,.28)}
+
+/* MEMORY */
+.memory-screen{background:radial-gradient(circle at 50% 8%,#3b152b,#100710 58%,#090509 100%);overflow:hidden}
+.memory-page{height:100%;padding:105px 8vw 40px;position:relative}
+.memory-title h2{font:600 clamp(58px,6.2vw,92px)/.77 "Cormorant Garamond",serif;margin:0 0 18px}.memory-title h2 em{color:var(--pink);font-weight:500}
+.memory-title>p:last-child{font-size:10px;line-height:1.85;color:var(--muted);max-width:450px}
+.memory-toolbar{position:absolute;right:8vw;top:108px;display:flex;gap:20px;align-items:center;color:var(--faint);font-size:8px;letter-spacing:.16em}.memory-toolbar b{color:var(--pink)}
+.photo-stage{position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);width:min(950px,86vw);height:min(590px,64vh)}
+.photo-stack:before,.photo-stack:after{content:"";position:absolute;left:50%;top:50%;width:56%;height:78%;background:#e9d5dc;transform:translate(-50%,-50%) rotate(-7deg);box-shadow:0 24px 60px rgba(0,0,0,.4);opacity:.34}.photo-stack:after{transform:translate(-50%,-50%) rotate(6deg);opacity:.2;background:#b8899e}
+.hero-photo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-1.5deg);width:min(590px,60vw);height:min(500px,57vh);margin:0;background:#f6e7ea;padding:12px 12px 58px;box-shadow:0 35px 85px rgba(0,0,0,.5);cursor:zoom-in;transition:.45s var(--ease)}.hero-photo:hover{transform:translate(-50%,-50%) rotate(0) scale(1.015)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;background:linear-gradient(145deg,#492138,#160b13)}
+.hero-photo figcaption{position:absolute;left:15px;right:15px;bottom:13px;display:flex;justify-content:space-between;align-items:end;color:#5a3444;font:500 20px "Cormorant Garamond",serif}.hero-photo figcaption b{font:600 9px Montserrat,sans-serif;letter-spacing:.16em;color:#9d6a80}
+.photo-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:45px;height:45px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.04);font-size:16px;color:var(--cream);transition:.25s}.photo-arrow:hover{border-color:rgba(243,155,195,.5);background:rgba(243,155,195,.1)}.photo-arrow.prev{left:2%}.photo-arrow.next{right:2%}
+.photo-dots{position:absolute;left:50%;bottom:38px;transform:translateX(-50%);display:flex;gap:6px}.photo-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);transition:.25s}.photo-dot.active{width:24px;border-radius:999px;background:var(--pink)}
+.memory-note{position:absolute;left:8vw;bottom:28px;font-size:8px;color:rgba(255,248,240,.28)}.memory-note code{color:var(--pink)}
+.lightbox{position:fixed;z-index:500;inset:0;background:rgba(3,1,3,.84);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center}.lightbox.show{display:flex}.lightbox img{max-width:83vw;max-height:78vh;box-shadow:0 45px 120px rgba(0,0,0,.6)}.lightbox-close{position:absolute;right:25px;top:20px;font-size:34px;color:var(--cream)}.lightbox div{position:absolute;bottom:18px;font-size:9px;letter-spacing:.15em;color:rgba(255,248,240,.55);text-transform:uppercase}
+
+/* CARE */
+[data-page="facts"]{background:radial-gradient(circle at 80% 20%,#351527,#100710 62%);overflow:hidden}
+.care-page{height:100%;padding:110px 8vw 40px}.care-intro h2{font:600 clamp(62px,6.4vw,95px)/.77 "Cormorant Garamond",serif;margin:0 0 18px}.care-intro h2 em{color:var(--pink);font-weight:500}.care-intro>p:last-child{font-size:10px;line-height:1.85;color:var(--muted);max-width:430px}
+.note-desk{position:absolute;right:8vw;top:16%;width:min(570px,44vw);height:65vh;min-height:470px;background:linear-gradient(145deg,#2b1622,#150b12);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);transform:rotate(-1deg);overflow:hidden}.note-desk:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 49.7%,rgba(255,255,255,.04) 50%,transparent 50.3%),linear-gradient(0deg,transparent 0 49.7%,rgba(255,255,255,.04) 50%,transparent 50.3%);opacity:.4}
+.note-card{position:absolute;width:205px;height:145px;padding:18px;text-align:left;background:linear-gradient(145deg,#fae5e9,#f1cfdc);color:#5c3146;box-shadow:0 20px 40px rgba(0,0,0,.3);transition:.35s var(--ease)}.note-card:hover{transform:translateY(-8px) rotate(0);box-shadow:0 28px 52px rgba(243,155,195,.13)}.note-card span{font-size:8px;color:#b36684}.note-card strong{display:block;font:600 23px "Cormorant Garamond",serif;margin-top:30px}.note-card i{position:absolute;right:13px;top:12px;font-style:normal;color:#bc5b80}.n1{left:8%;top:12%;transform:rotate(-5deg)}.n2{right:8%;top:18%;transform:rotate(4deg)}.n3{left:12%;bottom:14%;transform:rotate(4deg)}.n4{right:11%;bottom:10%;transform:rotate(-4deg)}
+.desk-stamp{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%) rotate(-12deg);font:700 16px/1 "Montserrat",sans-serif;letter-spacing:.18em;color:rgba(245,155,195,.17);text-align:center}
+.thanks-door{position:absolute;left:8vw;bottom:40px;display:flex;align-items:center;gap:16px;border-top:1px solid rgba(243,155,195,.22);padding-top:16px;color:var(--cream);text-align:left;transition:.3s}.thanks-door:hover{transform:translateY(-3px)}.thanks-door>span{font-size:25px;color:var(--pink)}.thanks-door small{display:block;font-size:8px;letter-spacing:.12em;color:var(--muted)}.thanks-door strong{display:block;font:500 24px "Cormorant Garamond",serif}.thanks-door b{font-size:18px;color:var(--pink);margin-left:18px}
+
+/* THANKS */
+[data-page="thanks"]{background:radial-gradient(circle at 22% 42%,#39182a,#100710 63%)}
+.thanks-page{height:100%;display:grid;grid-template-columns:1fr minmax(360px,530px);align-items:center;gap:8vw;padding:75px 11vw 40px}
+.thanks-letter h2{font:600 clamp(65px,7vw,105px)/.75 "Cormorant Garamond",serif;margin:0 0 22px}.thanks-letter h2 em{color:var(--pink);font-weight:500}.thanks-letter>p:not(.kicker){max-width:420px;font-size:10px;line-height:1.9;color:var(--muted)}
+.mail-seal{display:grid;place-items:center;width:58px;height:58px;border:1px solid rgba(243,155,195,.4);border-radius:50%;font:600 28px "Cormorant Garamond",serif;color:var(--pink);margin-top:40px}.mail-address{font-size:8px;color:rgba(255,248,240,.35);letter-spacing:.12em;margin-top:10px}
+.thanks-form{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);backdrop-filter:blur(18px);padding:28px;border-radius:22px;box-shadow:var(--shadow)}.form-head{display:flex;justify-content:space-between;color:rgba(255,248,240,.4);font-size:8px;letter-spacing:.16em;margin-bottom:20px}.form-head b{color:var(--pink)}
+.field{display:block;border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:13px 15px;margin-top:11px}.field span,.rating-field>div>span{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,248,240,.45);margin-bottom:8px}.field input,.field textarea{width:100%;border:0;outline:0;background:none;color:var(--cream);font-size:12px;resize:none}.field input::placeholder,.field textarea::placeholder{color:rgba(255,248,240,.22)}
+.rating-field{margin-top:13px;border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:13px 15px}.rating-field>div{display:flex;justify-content:space-between}.rating-field>div>strong{font-size:10px;color:var(--pink)}.rating-field input{width:100%;accent-color:var(--pink);margin:12px 0 4px}.range-labels{display:flex;justify-content:space-between;color:rgba(255,248,240,.25);font-size:7px}
+.send-note{margin-top:15px;display:flex;align-items:center;gap:20px;border-bottom:1px solid rgba(243,155,195,.4);padding:0 0 10px;color:var(--cream);font-size:10px;letter-spacing:.14em;text-transform:uppercase}.send-note i{font-style:normal;color:var(--pink);font-size:17px}.thanks-status{min-height:16px;margin:10px 0 0;font-size:9px;color:var(--pink);line-height:1.5}.form-smallprint{font-size:7px;line-height:1.6;color:rgba(255,248,240,.22);margin:16px 0 0}.honeypot{position:absolute!important;left:-99999px!important;opacity:0!important}
+
+/* GIFTS */
+[data-page="surprise"]{background:radial-gradient(circle at 50% 20%,#3a152a,#100710 67%);overflow:auto}
+.gift-page{min-height:100%;padding:100px 8vw 50px}.gift-title h2{font:600 clamp(62px,7vw,98px)/.76 "Cormorant Garamond",serif;margin:0 0 17px}.gift-title h2 em{color:var(--pink);font-weight:500}.gift-title>p:last-child{font-size:10px;color:var(--muted)}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:min(980px,92vw);margin:48px auto 28px}.gift-tile{min-height:210px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.04);padding:25px;text-align:center;transition:.4s var(--ease);position:relative;overflow:hidden}.gift-tile:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;left:50%;top:35%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(243,155,195,.11),transparent 68%);opacity:.7}.gift-tile:hover{transform:translateY(-9px);border-color:rgba(243,155,195,.42);background:rgba(243,155,195,.07);box-shadow:0 30px 70px rgba(0,0,0,.28)}.gift-art{display:block;font-size:37px;color:var(--pink);margin:7px 0 31px}.gift-tile strong{display:block;font:500 25px "Cormorant Garamond",serif}.gift-tile small{display:block;margin-top:6px;color:rgba(255,248,240,.3);font-size:7px;text-transform:uppercase;letter-spacing:.14em}
+.connect-door{width:min(980px,92vw);margin:0 auto;border:1px solid rgba(243,155,195,.26);border-radius:18px;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(100deg,rgba(243,155,195,.10),rgba(255,255,255,.03));text-align:left;transition:.3s}.connect-door:hover{transform:translateY(-3px);border-color:rgba(243,155,195,.5)}.connect-door span{display:block;font-size:8px;letter-spacing:.14em;color:var(--pink)}.connect-door strong{font:500 25px "Cormorant Garamond",serif}.connect-door b{font-size:20px;color:var(--pink)}
+
+/* CONNECT */
+[data-page="connect"]{background:radial-gradient(circle at 50% 46%,#41182e,#100710 72%)}
+.connect-page{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}.connect-orbit{position:relative;width:180px;height:180px;margin-bottom:25px;display:grid;place-items:center}.connect-orbit:before,.connect-orbit:after{content:"";position:absolute;border:1px solid rgba(243,155,195,.16);border-radius:50%;inset:0}.connect-orbit:after{inset:25px;border-color:rgba(243,155,195,.1)}.connect-orbit span{font:600 58px "Cormorant Garamond",serif;color:var(--pink);z-index:2}.connect-orbit i{position:absolute;width:5px;height:5px;background:var(--pink);border-radius:50%;animation:orbit 6s linear infinite;transform-origin:90px 90px}.connect-orbit i:nth-of-type(1){animation-delay:0}.connect-orbit i:nth-of-type(2){animation-delay:-1.5s}.connect-orbit i:nth-of-type(3){animation-delay:-3s}@keyframes orbit{to{transform:rotate(360deg)}}
+.connect-page h2{font:600 clamp(80px,9vw,125px)/.73 "Cormorant Garamond",serif;margin:0 0 24px}.connect-page h2 em{color:var(--pink);font-weight:500}.connect-page>p:not(.kicker){font-size:11px;color:var(--muted);margin-bottom:29px}.connect-button{border:1px solid rgba(243,155,195,.42);background:rgba(243,155,195,.09);border-radius:999px;padding:14px 20px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.connect-button span{color:var(--pink);margin-left:14px;font-size:16px}.connect-edit{margin-top:19px;font-size:7px;color:rgba(255,248,240,.23)}.connect-edit code{color:var(--pink)}
+
+/* FINAL */
+[data-page="final"]{background:radial-gradient(circle at 50% 43%,#471b31,#100710 72%)}
+.final-page{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:30px}.unlock-burst{font-size:42px;color:var(--pink);margin-bottom:18px;animation:unlockPulse 2s ease-in-out infinite}@keyframes unlockPulse{50%{transform:scale(1.15);opacity:.55}}
+.final-page h2{font:600 clamp(75px,9vw,128px)/.72 "Cormorant Garamond",serif;margin:0 0 27px}.final-page h2 em{color:var(--pink);font-weight:500}.final-page>p:not(.kicker){color:var(--muted);font-size:11px;line-height:1.9;margin-bottom:30px}.final-actions{display:flex;gap:10px}.final-btn{border:1px solid rgba(243,155,195,.35);padding:12px 16px;border-radius:999px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.04)}.final-btn span{color:var(--pink);margin-left:10px}.final-btn.secondary{color:var(--muted);border-color:var(--line)}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .room-copy{left:5vw;top:14vh}.room-progress{right:5vw;top:14vh}
+  .room-scene{width:110vw;height:70vh}.envelope{--scale:.85}.room-object{scale:.88}
+  .letter-layout{grid-template-columns:1fr;padding:92px 5vw 30px}.letter-hero{position:absolute;z-index:25;left:5vw;top:105px;pointer-events:none}.letter-hero h2{font-size:55px}.letter-lead{display:none}.letter-scroll-tip{margin-top:12px}.explore-stage{margin-top:95px;height:calc(100% - 115px)}.scroll-letter{left:4%;right:4%;top:0;bottom:0}
+  .memory-title{max-width:600px}.photo-stage{top:57%;width:95vw}.hero-photo{width:min(560px,68vw)}
+  .note-desk{position:absolute;right:5vw;width:50vw}.care-intro{max-width:44vw}
+  .thanks-page{grid-template-columns:1fr;padding:100px 7vw 35px;overflow:auto}.thanks-letter{padding-top:20px}
+  .gifts{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .top-ui{left:12px;right:12px}.mini-control b{display:none}.mini-control{padding:8px}.back-chip{left:12px;top:62px}
+  .hero-title{font-size:63px}.intro-words{left:7vw;right:6vw}.intro-skip{left:7vw}
+  .room-copy{top:90px;left:6vw}.room-copy h2{font-size:58px}.room-copy>p:last-child{max-width:220px}.room-progress{top:96px;right:6vw;width:110px}.room-scene{top:56%;width:145vw;height:69vh;transform:translate(-50%,-50%) scale(.94)}
+  .room-floor-tip{font-size:6px;bottom:13px}.window{left:26%;width:42%;height:50%}
+  .plant{scale:.8;transform-origin:bottom left}.lamp{scale:.75;transform-origin:top right}
+  .envelope{left:25%!important}.album{left:53%!important}.mirror{left:77%!important}.gift{left:67%!important}
+  .room-object small{display:none}
+  .letter-hero{top:85px}.letter-hero h2{font-size:47px}.explore-stage{margin-top:80px}.chibi-box{width:92px;height:84px}.scroll-letter{left:2%;right:2%;padding-right:7px}.paper-inner{padding:46px 28px}.paper-inner h3{font-size:35px}
+  .memory-page{padding:90px 6vw 25px}.memory-title h2{font-size:52px}.memory-toolbar{right:6vw;top:92px}.photo-stage{top:54%;height:58vh}.hero-photo{width:82vw;height:60vh}.photo-arrow{width:39px;height:39px}.memory-note{left:6vw;bottom:11px;font-size:6px}
+  .care-page{padding:90px 6vw 25px;overflow:auto}.care-intro{max-width:100%}.care-intro h2{font-size:52px}.note-desk{position:relative;right:auto;top:auto;width:100%;height:430px;min-height:0;margin-top:20px}.note-card{width:45%;height:120px}.note-card strong{font-size:19px;margin-top:20px}.thanks-door{position:relative;left:auto;bottom:auto;margin-top:28px}
+  .thanks-page{padding:88px 6vw 30px}.thanks-letter h2{font-size:60px}.thanks-form{padding:21px}.mail-seal{margin-top:25px}
+  .gift-page{padding:90px 6vw 25px}.gift-title h2{font-size:56px}.gifts{width:100%;grid-template-columns:1fr 1fr;gap:9px;margin-top:32px}.gift-tile{min-height:170px;padding:17px}.gift-art{font-size:30px;margin:5px 0 19px}.gift-tile strong{font-size:19px}
+  .connect-door{width:100%}.connect-door strong{font-size:21px}
+  .connect-page h2{font-size:78px}.final-page h2{font-size:76px}.final-actions{flex-direction:column}
+}
+
+/* =========================================================
+   V3.2 — ROOM COMPOSITION + GENTLER CHIBI RAIN
+   ========================================================= */
+
+/* ROOM: clearer architecture, stronger depth, more intentional object staging */
+[data-page="hub"]{background:radial-gradient(circle at 50% 42%,#1d0c18 0,#0d070c 58%,#060306 100%)}
+.room-scene{
+  width:min(1120px,108vw);
+  height:min(690px,70vh);
+  top:55%;
+  perspective:1500px;
+}
+.room-scene:before{
+  content:"";
+  position:absolute;
+  left:18%;right:18%;top:5%;height:60%;
+  background:radial-gradient(ellipse at 50% 42%,rgba(243,155,195,.12),transparent 63%);
+  filter:blur(16px);
+  pointer-events:none;
+  z-index:1;
+}
+.back-wall{
+  inset:0 7% 13%;
+  background:
+    radial-gradient(circle at 52% 44%,rgba(226,146,183,.10),transparent 30%),
+    linear-gradient(145deg,#321525 0,#1d0d18 48%,#0e080d 100%);
+  border-color:rgba(255,255,255,.11);
+  box-shadow:inset 0 0 120px rgba(0,0,0,.42),0 35px 100px rgba(0,0,0,.58);
+  z-index:2;
+}
+.room-floor{
+  left:1%;right:1%;bottom:-2%;height:31%;
+  background:
+    linear-gradient(180deg,rgba(243,155,195,.06),transparent 25%),
+    repeating-linear-gradient(90deg,#12090f 0,#12090f 89px,#1a0d15 90px),
+    repeating-linear-gradient(0deg,transparent 0,transparent 89px,rgba(255,255,255,.045) 90px);
+  box-shadow:0 -35px 95px rgba(0,0,0,.62);
+  z-index:3;
+}
+.room-floor:before{
+  content:"";
+  position:absolute;
+  left:27%;right:27%;top:19%;height:54%;
+  transform:skewX(-5deg);
+  background:radial-gradient(ellipse at center,rgba(119,55,84,.46),rgba(53,24,40,.22) 60%,transparent 72%);
+  border:1px solid rgba(243,155,195,.07);
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.window{
+  left:26%;top:11%;width:31%;height:47%;
+  border-width:9px;
+  background:radial-gradient(circle at 58% 42%,#74405f,#382039 48%,#160a12 100%);
+  box-shadow:inset 0 0 55px rgba(243,155,195,.20),0 25px 55px rgba(0,0,0,.38);
+  z-index:5;
+}
+.window-glow{background:radial-gradient(circle at 58% 42%,rgba(255,190,220,.38),transparent 56%)}
+.lamp{right:11%;top:10%;width:116px;height:320px;z-index:8}
+.lamp span{box-shadow:0 0 65px rgba(245,155,195,.28)}
+.table{
+  left:31%;bottom:20%;width:40%;height:58px;
+  background:linear-gradient(145deg,#543047,#24131e);
+  box-shadow:0 18px 45px rgba(0,0,0,.56),0 0 35px rgba(243,155,195,.05);
+  z-index:9;
+}
+.plant{left:7%;bottom:18%;z-index:8;filter:drop-shadow(0 18px 25px rgba(0,0,0,.4))}
+.room-center-mark{left:50%;top:26%;z-index:6;color:rgba(255,248,240,.30)}
+.room-object{
+  z-index:20;
+  transform:translate(-50%,-50%) translateZ(20px);
+  filter:drop-shadow(0 16px 24px rgba(0,0,0,.48));
+}
+.room-object:hover{
+  transform:translate(-50%,-50%) translateY(-12px) translateZ(35px) scale(1.06);
+  filter:drop-shadow(0 22px 30px rgba(243,155,195,.25));
+}
+.room-object strong{z-index:4;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.room-object small{text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.envelope{left:29%!important;top:60%!important}
+.album{left:50%!important;top:61%!important}
+.mirror{left:76%!important;top:48%!important}
+.gift{left:66%!important;top:73%!important}
+.object-label{z-index:70;bottom:1%;text-shadow:0 2px 10px #000}
+.room-floor-tip{z-index:80}
+
+/* LETTER: random rain + easier click */
+.chibi-box{
+  width:84px;
+  height:73px;
+  border-radius:14px;
+  box-shadow:0 14px 32px rgba(0,0,0,.28);
+  transform:translate3d(0,-95px,0) rotate(var(--rot)) scale(var(--scale));
+  animation:dropBox var(--dur) var(--delay) cubic-bezier(.18,.68,.22,1) forwards;
+  transition:opacity .24s ease,filter .18s ease,box-shadow .18s ease;
+  cursor:pointer;
+  touch-action:manipulation;
+  will-change:transform,opacity;
+}
+.chibi-face{top:9px;width:32px;height:27px}
+.chibi-face:before,.chibi-face:after{top:10px;width:3px;height:6px}
+.chibi-face:before{left:8px}.chibi-face:after{right:8px}
+.chibi-heart{right:8px;top:8px;font-size:11px}
+.chibi-copy{left:7px;right:7px;bottom:7px;font-size:10px}
+
+/* Rê chuột: box dừng lại, không bị nhảy vị trí nên dễ bấm hơn. */
+.chibi-box:hover{
+  animation-play-state:paused;
+  filter:drop-shadow(0 16px 26px rgba(243,155,195,.22));
+  box-shadow:0 18px 38px rgba(243,155,195,.20);
+}
+.chibi-box:focus-visible{outline:2px solid rgba(243,155,195,.65);outline-offset:3px}
+.chibi-box.clicked{opacity:0!important;pointer-events:none}
+
+@keyframes dropBox{
+  0%{opacity:0;transform:translate3d(0,-95px,0) rotate(var(--rot)) scale(var(--scale))}
+  7%{opacity:1}
+  82%{opacity:1}
+  100%{opacity:1;transform:translate3d(var(--drift),calc(100vh + 55px),0) rotate(calc(var(--rot) + 26deg)) scale(var(--scale))}
+}
+
+@media(max-width:980px){
+  .room-scene{width:112vw;height:69vh;top:55%}
+  .envelope{left:28%!important;top:59%!important}
+  .album{left:50%!important;top:61%!important}
+  .mirror{left:76%!important;top:47%!important}
+  .gift{left:66%!important;top:72%!important}
+  .chibi-box{width:78px;height:68px}
+}
+@media(max-width:620px){
+  .room-scene{top:57%;width:148vw;height:68vh;transform:translate(-50%,-50%) scale(.90)}
+  .window{left:28%;width:40%;height:47%}
+  .envelope{left:25%!important;top:59%!important}
+  .album{left:50%!important;top:61%!important}
+  .mirror{left:77%!important;top:47%!important}
+  .gift{left:66%!important;top:72%!important}
+  .chibi-box{width:70px;height:61px}
+  .chibi-face{width:28px;height:23px}
+  .chibi-copy{font-size:9px}
+}
+
+/* PHOTO CLICK/SELECTION OVERLAY — prevents image drag/text selection */
+.hero-photo,
+.hero-photo img,
+.lightbox,
+.lightbox img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.hero-photo {
+  position: absolute;
+  -webkit-user-drag: none;
+}
+.hero-photo img,
+.lightbox img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+.photo-overlay,
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: transparent;
+  user-select: none;
+}
+.hero-photo figcaption {
+  z-index: 4;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.lightbox .lightbox-overlay {
+  position: fixed;
+}
+.lightbox-close {
+  z-index: 6;
+}
+
+
+/* INTERACTION SHIELD — prevents accidental text/image selection on interactive artwork */
+.chibi-box,
+.chibi-box *,
+.paper-inner,
+.paper-inner *,
+.hero-photo,
+.hero-photo *,
+.lightbox,
+.lightbox * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+}
+
+.chibi-box,
+.paper-inner,
+.hero-photo,
+.lightbox {
+  -webkit-user-drag: none;
+}
+
+/* Transparent shield: keeps the artwork a clean clickable surface without covering the click target. */
+.chibi-box::after,
+.paper-inner::after,
+.hero-photo::after,
+.lightbox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Do not block typing/selecting inside actual form controls. */
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Không cho chọn/bôi text trên các thành phần tương tác */
+.room-object,
+.chibi-box,
+.gift-tile,
+.note-card,
+.connect-card,
+.final-door,
+button,
+.photo-card,
+.photo-overlay,
+.lightbox,
+.lightbox *,
+.explore-stage {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gift-tile {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.gift-tile,
+.gift-tile * {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   MOBILE FIX - 20/10
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* ===== TOP ===== */
+
+  .top-ui {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .mini-control {
+    padding: 8px 10px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .mini-control b {
+    display: none;
+  }
+
+  .mini-control span {
+    margin-right: 0;
+  }
+
+  .back-chip {
+    left: 12px;
+    top: 60px;
+  }
+
+
+  /* ===== INTRO ===== */
+
+  .intro-words {
+    left: 7vw;
+    right: 7vw;
+    top: 50%;
+    max-width: none;
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 15vw, 72px);
+    line-height: .84;
+  }
+
+  .hero-sub {
+    max-width: 280px;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .intro-skip {
+    left: 7vw;
+    right: 7vw;
+    bottom: 18px;
+    font-size: 7px;
+  }
+
+
+  /* ===== ROOM ===== */
+
+  .room-copy {
+    top: 88px;
+    left: 6vw;
+    max-width: 210px;
+  }
+
+  .room-copy h2 {
+    font-size: clamp(46px, 13vw, 62px);
+  }
+
+  .room-progress {
+    top: 92px;
+    right: 6vw;
+    width: 85px;
+  }
+
+  .room-scene {
+    left: 50%;
+    top: 56%;
+    width: 115vw;
+    height: 62vh;
+
+    transform:
+      translate(-50%, -50%)
+      !important;
+
+    perspective: none;
+  }
+
+
+  .room-object small {
+    display: none;
+  }
+
+  .object-label {
+    bottom: 5%;
+    font-size: 7px;
+  }
+
+  .room-floor-tip {
+    bottom: 14px;
+    font-size: 7px;
+  }
+
+
+  /* ===== LETTER ===== */
+
+  .letter-layout {
+    display: block;
+    height: 100%;
+    padding: 95px 14px 20px;
+  }
+
+  .letter-hero {
+    position: absolute;
+    left: 7vw;
+    right: 7vw;
+    top: 88px;
+    z-index: 30;
+    display: block;
+    pointer-events: none;
+  }
+
+  .letter-hero h2 {
+    font-size: clamp(46px, 13vw, 62px);
+    line-height: .8;
+  }
+
+  .letter-lead {
+    display: none;
+  }
+
+  .letter-scroll-tip {
+    margin-top: 10px;
+    font-size: 7px;
+  }
+
+  .explore-stage {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: 185px;
+    bottom: 12px;
+    height: auto;
+    min-height: 0;
+  }
+
+  .scroll-letter {
+    left: 5%;
+    right: 5%;
+    top: 3%;
+    bottom: 3%;
+  }
+
+  .paper-inner {
+    padding:
+      40px 20px
+      50px;
+  }
+
+  .paper-inner h3 {
+    font-size: clamp(27px, 8vw, 37px);
+  }
+
+  #letterContent p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .chibi-box {
+    width: 76px;
+    height: 66px;
+  }
+
+
+  /* ===== MEMORY ===== */
+
+  .memory-page {
+    padding: 98px 6vw 30px;
+  }
+
+  .memory-title h2 {
+    font-size: clamp(43px, 12vw, 61px);
+    line-height: .8;
+  }
+
+  .memory-title > p:last-child {
+    max-width: 310px;
+    font-size: 9px;
+    line-height: 1.7;
+  }
+
+  .memory-toolbar {
+    left: 6vw;
+    right: 6vw;
+    top: auto;
+    bottom: 22px;
+    justify-content: space-between;
+  }
+
+  .photo-stage {
+    width: 90vw;
+    height: 55vh;
+    top: 58%;
+  }
+
+  .hero-photo {
+    width: 76vw;
+    height: 55vh;
+  }
+
+  .hero-photo:hover {
+    transform:
+      translate(-50%, -50%)
+      rotate(-1.5deg);
+  }
+
+  .photo-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .memory-note {
+    left: 6vw;
+    right: 6vw;
+    bottom: 40px;
+    text-align: center;
+    font-size: 7px;
+  }
+
+
+  /* ===== CARE ===== */
+
+  [data-page="facts"] {
+    overflow-y: auto;
+  }
+
+  .care-page {
+    height: auto;
+    min-height: 100%;
+    padding: 95px 6vw 35px;
+  }
+
+  .care-intro {
+    max-width: none;
+  }
+
+  .care-intro h2 {
+    font-size: clamp(47px, 13vw, 65px);
+  }
+
+  .note-desk {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: 450px;
+    min-height: 0;
+    margin-top: 25px;
+  }
+
+  .note-card {
+    width: 44%;
+    height: 125px;
+    padding: 14px;
+  }
+
+  .note-card strong {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .thanks-door {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+
+  /* ===== THANKS ===== */
+
+  [data-page="thanks"] {
+    overflow-y: auto;
+  }
+
+  .thanks-page {
+    min-height: 100%;
+    height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding:
+      98px
+      6vw
+      35px;
+  }
+
+  .thanks-letter h2 {
+    font-size: clamp(48px, 13vw, 67px);
+  }
+
+  .thanks-letter > p:not(.kicker) {
+    max-width: 310px;
+    font-size: 9px;
+    line-height: 1.75;
+  }
+
+  .thanks-form {
+    width: 100%;
+    padding: 20px 17px;
+  }
+
+
+  /* ===== GIFTS ===== */
+
+  [data-page="surprise"] {
+    overflow-y: auto;
+  }
+
+  .gift-page {
+    min-height: 100%;
+    padding: 98px 6vw 35px;
+  }
+
+  .gift-title h2 {
+    font-size: clamp(48px, 13vw, 67px);
+  }
+
+  .gifts {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .gift-tile {
+    min-height: 155px;
+    padding: 17px 9px;
+  }
+
+  .gift-art {
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+
+  .gift-tile strong {
+    font-size: 19px;
+  }
+
+  .connect-door {
+    width: 100%;
+  }
+
+
+  /* ===== CONNECT ===== */
+
+  .connect-page {
+    min-height: 100%;
+    padding: 85px 20px 30px;
+  }
+
+  .connect-orbit {
+    width: 140px;
+    height: 140px;
+  }
+
+  .connect-page h2 {
+    font-size: clamp(58px, 15vw, 80px);
+  }
+
+
+  /* ===== FINAL ===== */
+
+  .final-page {
+    min-height: 100%;
+    padding: 30px 22px;
+  }
+
+  .final-page h2 {
+    font-size: clamp(57px, 15vw, 82px);
+  }
+
+  .final-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .final-btn {
+    width: 100%;
+  }
+
+
+  /* ===== 4/4 MODAL ===== */
+
+  .completion-modal {
+    padding: 16px;
+    z-index: 9999;
+  }
+
+  .completion-card {
+    width: calc(100vw - 32px);
+    max-width: 430px;
+
+    padding: 34px 22px 30px;
+
+    border-radius: 22px;
+  }
+
+  .completion-card h3 {
+    max-width: 340px;
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .completion-card p {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .room-scene {
+    width: 122vw;
+  }
+
+  .room-copy h2 {
+    font-size: 49px;
+  }
+
+  .room-progress {
+    width: 75px;
+  }
+
+  .gift-tile {
+    min-height: 145px;
+  }
+
+  .gift-tile strong {
+    font-size: 17px;
+  }
+
+  .note-card {
+    height: 118px;
+  }
+
+  .note-card strong {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICE
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .room-object:hover,
+  .gift-tile:hover,
+  .note-card:hover,
+  .hero-photo:hover,
+  .connect-door:hover,
+  .thanks-door:hover {
+    filter: none;
+  }
+
+  .hero-photo:hover {
+    transform:
+      translate(-50%, -50%)
+      rotate(-1.5deg);
+  }
+}
+
+/* =========================================================
+   MOBILE ROOM - FIX OBJECTS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Phòng */
+  .room-scene {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+
+    width: 112vw;
+    height: 63vh;
+
+    transform: translate(-50%, -50%) !important;
+    transform-style: preserve-3d;
+
+    overflow: visible;
+  }
+
+  /* Tất cả vật thể */
+  .room-object {
+    position: absolute !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    z-index: 100 !important;
+
+    filter: drop-shadow(
+      0 16px 24px rgba(0,0,0,.48)
+    );
+
+    transform:
+      translate(-50%, -50%)
+      translateZ(20px)
+      scale(.82) !important;
+  }
+
+  /* Không dùng hover transform trên điện thoại */
+  .room-object:hover {
+    transform:
+      translate(-50%, -50%)
+      translateZ(20px)
+      scale(.82) !important;
+
+    filter: drop-shadow(
+      0 16px 24px rgba(0,0,0,.48)
+    );
+  }
+
+  /* 01 - Phong thư */
+  .room-object.envelope {
+    left: 28% !important;
+    top: 59% !important;
+  }
+
+  /* 02 - Album */
+  .room-object.album {
+    left: 50% !important;
+    top: 61% !important;
+  }
+
+  /* 03 - Gương */
+  .room-object.mirror {
+    left: 76% !important;
+    top: 47% !important;
+  }
+
+  /* 04 - Hộp quà */
+  .room-object.gift {
+    left: 66% !important;
+    top: 72% !important;
+  }
+
+  /* Số 01 02 03 04 */
+  .room-object strong {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 110 !important;
+  }
+
+  /* Ẩn dòng mô tả phụ trên mobile */
+  .room-object small {
+    display: none !important;
+  }
+
+  /* Không để các layer trong phòng che vật thể */
+  .back-wall,
+  .room-floor,
+  .window,
+  .lamp,
+  .table,
+  .plant {
+    pointer-events: none;
+  }
+
+  /* Giữ vật thể ở trên kiến trúc */
+  .room-object {
+    pointer-events: auto !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .room-scene {
+    width: 116vw;
+    height: 61vh;
+    top: 57%;
+  }
+
+  .room-object {
+    transform:
+      translate(-50%, -50%)
+      translateZ(20px)
+      scale(.74) !important;
+  }
+
+  .room-object:hover {
+    transform:
+      translate(-50%, -50%)
+      translateZ(20px)
+      scale(.74) !important;
+  }
+
+  .room-object.envelope {
+    left: 27% !important;
+    top: 59% !important;
+  }
+
+  .room-object.album {
+    left: 50% !important;
+    top: 61% !important;
+  }
+
+  .room-object.mirror {
+    left: 76% !important;
+    top: 47% !important;
+  }
+
+  .room-object.gift {
+    left: 66% !important;
+    top: 72% !important;
+  }
+}

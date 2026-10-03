@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b060b">
+  <title>20/10 — Một căn phòng dành cho những người phụ nữ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/oYVfpYl.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <div id="noise"></div>
+  <div id="cursorGlow"></div>
+  <div id="ambientParticles"></div>
+  <div id="transition"></div>
+
+  <header class="top-ui">
+    <button class="mini-brand" data-go="hub" type="button">20/10</button>
+    <div class="top-actions">
+      <button id="musicToggle" class="mini-control" type="button"><span>♪</span><b id="musicLabel">BẬT NHẠC</b></button>
+      <button id="helpToggle" class="mini-control" type="button"><span>?</span><b>HƯỚNG DẪN</b></button>
+    </div>
+  </header>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="piano.mp3" type="audio/mp3">
+  </audio>
+
+  <main id="app">
+    <!-- INTRO -->
+    <section class="screen active" data-page="intro">
+      <div class="intro-scene">
+        <div class="moon"></div>
+        <div class="intro-glass"></div>
+        <div class="intro-words">
+          <p class="kicker reveal-line">20 · 10 · 2026</p>
+          <h1 class="hero-title">
+            <span class="reveal-line delay-1">Có một căn phòng</span>
+            <em class="reveal-line delay-2">đang chờ bạn.</em>
+          </h1>
+          <p class="hero-sub reveal-line delay-3">Không dành riêng cho một ai.<br>Dành cho những người phụ nữ.</p>
+          <button class="hero-enter reveal-line delay-4" data-go="hub" type="button">
+            <span>Đi vào</span><i>↗</i>
+          </button>
+        </div>
+        <div class="intro-skip">Bật nhạc rồi bước vào thật chậm.</div>
+      </div>
+    </section>
+
+    <!-- HUB 3D ROOM -->
+    <section class="screen" data-page="hub">
+      <div class="room-ui">
+        <div class="room-copy">
+          <p class="kicker">THE 20/10 ROOM</p>
+          <h2>Một nơi để<br><em>khám phá.</em></h2>
+          <p id="roomHint">Có 4 điều đang đợi bạn chạm tới.</p>
+        </div>
+
+        <div class="room-progress">
+          <span id="progressText">0 / 4</span>
+          <div class="progress-track"><i id="progressBar"></i></div>
+        </div>
+
+        <div class="room-scene" id="roomScene">
+          <div class="room-floor"></div>
+          <div class="back-wall"></div>
+          <div class="window">
+            <div class="window-glow"></div>
+            <div class="window-frame x"></div>
+            <div class="window-frame y"></div>
+          </div>
+          <div class="plant plant-a"><i></i><i></i><i></i><b></b></div>
+          <div class="lamp"><span></span><i></i></div>
+          <div class="table"></div>
+
+          <!-- OBJECTS -->
+          <button class="room-object envelope" data-go="letter" data-label="KHÁM PHÁ · Một lời muốn nói" style="--x:24%;--y:59%;--z:2" type="button">
+            <div class="object-glow"></div>
+            <div class="env-paper"></div><div class="env-flap"></div>
+            <strong>01</strong>
+            <small>một lời muốn nói</small>
+          </button>
+
+          <button class="room-object album" data-go="women" data-label="KỶ NIỆM · Những người phụ nữ" style="--x:52%;--y:58%;--z:4" type="button">
+            <div class="album-shadow"></div><div class="album-cover"><span>MEMORIES</span><b>20/10</b></div>
+            <strong>02</strong>
+            <small>kho ký ức</small>
+          </button>
+
+          <button class="room-object mirror" data-go="facts" data-label="NHẮC NHỞ · Bạn có biết?" style="--x:76%;--y:47%;--z:3" type="button">
+            <div class="mirror-frame"></div><div class="mirror-core"><span>♡</span></div>
+            <strong>03</strong>
+            <small>một lời nhắc</small>
+          </button>
+
+          <button class="room-object gift" data-go="surprise" data-label="DÀNH TẶNG · Một điều cho bạn" style="--x:67%;--y:71%;--z:5" type="button">
+            <div class="gift-ribbon"></div><div class="gift-box"></div>
+            <strong>04</strong>
+            <small>một món quà</small>
+          </button>
+
+          <div class="object-label" id="objectLabel">Rê chuột vào một vật thể</div>
+          <div class="room-center-mark">20<br><span>/</span><br>10</div>
+        </div>
+      </div>
+      <div class="room-floor-tip">click vật thể để mở · rê chuột để nhìn quanh</div>
+    </section>
+
+    <!-- LETTER / DISCOVERY -->
+    <section class="screen" data-page="letter">
+      <button class="back-chip" data-go="hub" type="button">← Phòng chính</button>
+      <div class="letter-layout">
+        <aside class="letter-hero">
+          <p class="kicker">01 · KHÁM PHÁ</p>
+          <h2>Một lời<br><em>muốn nói.</em></h2>
+          <p class="letter-lead">Những lời chúc không nằm yên trên một tấm thiệp. Chúng rơi xuống, chờ bạn tự chọn.</p>
+          <div class="letter-scroll-tip">↓ Cuộn để đọc hết bức thư</div>
+        </aside>
+
+        <div class="explore-stage" id="exploreStage">
+          <div class="explore-sky"></div>
+          <div id="chibiRain" class="chibi-rain"></div>
+
+          <article class="scroll-letter" id="letterScroll">
+            <div class="paper-inner">
+              <div class="paper-topline"><span>20 · 10 · 2026</span><i>✦</i></div>
+              <h3>Gửi những người phụ nữ<br>mà cuộc đời đã cho chúng ta gặp.</h3>
+              <div id="letterContent"></div>
+              <div class="letter-signature">
+                <span>một lời nhỏ,</span>
+                <strong>nhưng thật lòng.</strong>
+              </div>
+              <div class="letter-rose">♡</div>
+            </div>
+          </article>
+
+          <div class="explore-tip">Chạm những chiếc box đang bay ✦</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORY -->
+    <section class="screen memory-screen" data-page="women">
+      <button class="back-chip" data-go="hub" type="button">← Phòng chính</button>
+      <div class="memory-page">
+        <div class="memory-title">
+          <p class="kicker">02 · KỶ NIỆM</p>
+          <h2>Những người phụ nữ<br><em>ở trong ký ức.</em></h2>
+          <p>Không có “người phụ nữ chung chung”. Có những gương mặt thật, những ngày thật, những khoảnh khắc chỉ thuộc về bạn.</p>
+        </div>
+
+        <div class="memory-toolbar">
+          <span>ALBUM 01</span>
+          <b id="memoryCounter">01 / 08</b>
+        </div>
+
+        <div class="photo-stage" id="photoStage">
+          <button class="photo-arrow prev" id="photoPrev" type="button">←</button>
+          <div class="photo-stack"></div>
+          <figure class="hero-photo" id="heroPhoto">
+            <span class="photo-overlay" aria-hidden="true"></span>
+            <img draggable="false" src="assets/photos/memory-01.jpg" alt="Kỷ niệm 01">
+            <figcaption><span id="photoCaption">Một khoảnh khắc</span><b id="photoMeta">01</b></figcaption>
+          </figure>
+          <button class="photo-arrow next" id="photoNext" type="button">→</button>
+        </div>
+
+        <div class="photo-dots" id="photoDots"></div>
+        <p class="memory-note">💡 Thay ảnh trong <code>assets/photos/</code> để biến nơi này thành kho ảnh thật.</p>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" type="button">×</button>
+        <span class="lightbox-overlay" aria-hidden="true"></span>
+        <img id="lightboxImage" draggable="false" src="" alt="">
+        <div id="lightboxText"></div>
+      </div>
+    </section>
+
+    <!-- FACTS -->
+    <section class="screen" data-page="facts">
+      <button class="back-chip" data-go="hub" type="button">← Phòng chính</button>
+      <div class="care-page">
+        <div class="care-intro">
+          <p class="kicker">03 · NHẮC NHỞ</p>
+          <h2>Một vài điều<br><em>hãy nhớ cho mình.</em></h2>
+          <p>Chạm từng mảnh giấy. Mỗi mảnh là một lời nhắc rất nhỏ để bạn dịu dàng hơn với chính mình.</p>
+        </div>
+
+        <div class="note-desk">
+          <button class="note-card n1" data-note="Bạn không cần phải mạnh mẽ mọi lúc. Nghỉ ngơi không phải bỏ cuộc. Có những ngày chậm lại mới là cách đi tiếp." type="button">
+            <span>01</span><strong>Được nghỉ ngơi</strong><i>+</i>
+          </button>
+          <button class="note-card n2" data-note="Bạn được quyền từ chối những điều làm mình kiệt sức. Sự tử tế với người khác không nên bắt đầu bằng sự bỏ quên chính mình." type="button">
+            <span>02</span><strong>Được lựa chọn</strong><i>+</i>
+          </button>
+          <button class="note-card n3" data-note="Bắt đầu lại không có nghĩa là bạn thất bại. Nó chỉ có nghĩa là bạn còn đủ can đảm để thử một cách khác." type="button">
+            <span>03</span><strong>Được bắt đầu lại</strong><i>+</i>
+          </button>
+          <button class="note-card n4" data-note="Bạn không cần vừa vặn với chiếc khuôn của người khác. Phiên bản thật của bạn đã đủ để được yêu quý." type="button">
+            <span>04</span><strong>Được là chính mình</strong><i>+</i>
+          </button>
+          <div class="desk-stamp">TAKE<br>CARE<br>OF YOU</div>
+        </div>
+
+        <button class="thanks-door" data-go="thanks" type="button">
+          <span>♡</span>
+          <div><small>CÓ MỘT CÁNH CỬA NỮA</small><strong>Gửi lời nhắn cho Kio</strong></div>
+          <b>↗</b>
+        </button>
+      </div>
+    </section>
+
+    <!-- THANKS -->
+    <section class="screen" data-page="thanks">
+      <button class="back-chip" data-go="facts" type="button">← Nhắc nhở</button>
+      <div class="thanks-page">
+        <div class="thanks-letter">
+          <p class="kicker">A LITTLE NOTE BACK</p>
+          <h2>Gửi một lời góp ý<br><em>cho Kio.</em></h2>
+          <p>Đến lượt bạn. Chỉ cần vài dòng thôi — tên, cảm nhận và một chút thành thật. Lời nhắn sẽ được gửi qua email.</p>
+          <div class="mail-seal">K</div>
+          <div class="mail-address">kiotarot@gmail.com</div>
+        </div>
+
+        <form class="thanks-form" id="thanksForm">
+          <div class="form-head"><span>LET'S WRITE SOMETHING</span><b>✦</b></div>
+
+          <label class="field">
+            <span>Tên</span>
+            <input required name="name" type="text" placeholder="Tên của bạn" autocomplete="name">
+          </label>
+
+          <label class="field">
+            <span>Email của bạn</span>
+            <input required name="email" type="email" placeholder="you@example.com" autocomplete="email">
+          </label>
+
+          <label class="field">
+            <span>Lời nhắn</span>
+            <textarea required name="message" rows="5" placeholder="Bạn muốn nói gì với Kio?"></textarea>
+          </label>
+
+          <div class="rating-field">
+            <div><span>Mức độ hài lòng</span><strong><b id="ratingValue">5</b> / 5</strong></div>
+            <input id="ratingRange" name="rating" type="range" min="1" max="5" value="5">
+            <div class="range-labels"><small>1 · chưa ổn</small><small>5 · rất thích</small></div>
+          </div>
+
+          <input type="hidden" name="_subject" value="💌 Một lời nhắn gửi đến Kio — 20/10">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+
+          <button class="send-note" type="submit"><span id="sendLabel">Gửi lời nhắn</span><i>→</i></button>
+          <p id="thanksStatus" class="thanks-status" aria-live="polite"></p>
+
+          <p class="form-smallprint">Email của bạn chỉ dùng để Kio có thể bấm “Reply” trả lời.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- GIFTS -->
+    <section class="screen" data-page="surprise">
+      <button class="back-chip" data-go="hub" type="button">← Phòng chính</button>
+      <div class="gift-page">
+        <div class="gift-title">
+          <p class="kicker">04 · DÀNH TẶNG</p>
+          <h2>Bạn không cần<br>chờ ai <em>tặng mình.</em></h2>
+          <p>Những món quà nhỏ này là để bạn tự chọn.</p>
+        </div>
+
+        <div class="gifts">
+          <button class="gift-tile" data-gift="Hôm nay, hãy cho bản thân một khoảng nghỉ không thấy có lỗi. Tắt thông báo. Uống nước. Thở chậm. Thế là đủ." type="button">
+            <span class="gift-art cloud">☁</span><strong>Một khoảng nghỉ</strong><small>chạm để mở</small>
+          </button>
+          <button class="gift-tile" data-gift="Một bó hoa không cần lý do. Mua cho mình một bó, đặt ở nơi bạn dễ nhìn thấy nhất và để nó nhắc rằng bạn cũng là một điều đáng được nâng niu." type="button">
+            <span class="gift-art flower">✿</span><strong>Một bó hoa</strong><small>chạm để mở</small>
+          </button>
+          <button class="gift-tile" data-gift="Có những lúc bạn chỉ cần một cái ôm, kể cả là tự ôm mình. Hãy để hôm nay mềm hơn một chút." type="button">
+            <span class="gift-art heart">♡</span><strong>Một cái ôm</strong><small>chạm để mở</small>
+          </button>
+          <button class="gift-tile" data-gift="Mọi thứ chưa cần phải ổn ngay hôm nay. Một chút niềm tin cũng đủ để đi tiếp một đoạn đường." type="button">
+            <span class="gift-art star">✦</span><strong>Một niềm tin</strong><small>chạm để mở</small>
+          </button>
+          <button class="gift-tile" data-gift="Hãy làm một điều rất vô tri nhưng khiến mình vui. Không phải mọi khoảnh khắc đều cần trở thành một mục tiêu." type="button">
+            <span class="gift-art tea">☕</span><strong>Một chút thư thả</strong><small>chạm để mở</small>
+          </button>
+          <button class="gift-tile" data-gift="Viết cho bản thân một câu an ủi rồi giữ nó trong điện thoại. Những ngày khó khăn sẽ cần đến nó." type="button">
+            <span class="gift-art letter">✉</span><strong>Một câu an ủi</strong><small>chạm để mở</small>
+          </button>
+        </div>
+
+        <button class="connect-door" data-go="connect" type="button">
+          <div><span>KẾT NỐI</span><strong>Đi tiếp sang món quà đặc biệt</strong></div>
+          <b>↗</b>
+        </button>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="screen" data-page="connect">
+      <button class="back-chip" data-go="surprise" type="button">← Dành tặng</button>
+      <div class="connect-page">
+        <div class="connect-orbit"><span>K</span><i></i><i></i><i></i></div>
+        <p class="kicker">ONE MORE DOOR</p>
+        <h2>Mòn quà<br><em>siêu đặc biệt</em></h2>
+        <p>Một điều bất ngờ đang chờ đón. Cùng khám phá nhé!</p>
+        <a id="connectLink" class="connect-button" href="bonus.html" target="_blank" rel="noopener">Mở trang kết nối <span>↗</span></a>
+        <small class="connect-edit">Khám phá món quà bất ngờ nào!</small>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="screen" data-page="final">
+      <div class="final-page">
+        <div class="unlock-burst" id="unlockBurst">✦</div>
+        <p class="kicker">YOU FOUND THEM ALL</p>
+        <h2>Vậy là bạn đã<br><em>đi hết căn phòng.</em></h2>
+        <p>Giờ thì mang một chút dịu dàng này ra ngoài đời thật nhé.</p>
+        <div class="final-actions">
+          <button class="final-btn" data-go="hub" type="button">Quay lại căn phòng <span>↻</span></button>
+          <button class="final-btn secondary" data-go="thanks" type="button">Gửi lại một lời <span>♡</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GLOBAL MODALS -->
+  <div class="overlay-modal" id="helpModal">
+    <div class="help-card">
+      <button class="modal-x" type="button">×</button>
+      <p class="kicker">HOW TO EXPLORE</p>
+      <h3>Mỗi vật thể là một cánh cửa.</h3>
+      <p>Rê chuột để nhìn quanh căn phòng. Click vào phong thư, album, gương hoặc hộp quà để đi vào từng không gian. Khi bạn khám phá đủ 4 nơi, đoạn kết sẽ mở.</p>
+      <div class="help-mini"><span>01</span><span>02</span><span>03</span><span>04</span></div>
+    </div>
+  </div>
+
+  <div class="overlay-modal" id="messageModal">
+    <div class="message-card">
+      <button class="modal-x" type="button">×</button>
+      <div class="message-bloom">✦</div>
+      <p class="kicker">MỘT ĐIỀU NHỎ</p>
+      <h3 id="messageText"></h3>
+      <span>♡</span>
+    </div>
+  </div>
+
+    <div class="completion-modal" id="completionModal">
+      <div class="completion-card">
+        <div class="completion-star">✦</div>
+
+        <h3>
+          Bạn đã khám phá hết những điều tuyệt vời nhất
+        </h3>
+
+        <p>
+          Hẹn gặp lại bạn nhé
+        </p>
+
+        <button type="button" id="completionClose">
+          Tiếp tục khám phá
+        </button>
+      </div>
+    </div>
+  
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
